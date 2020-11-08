@@ -40,6 +40,7 @@ public:
     void setRoot(Node*);
     void insert(int,FILE*);
     void insertInternal(int,Node**,Node**);
+    Node** findParent(Node*,Node*);
 
 };
 
@@ -179,7 +180,7 @@ void BPTree::insert(int key,FILE* filePtr){
 
     }
 
-    //completed inserted
+    //completed insert
 
 }
 
@@ -208,9 +209,14 @@ void BPTree::insertInternal(int x,Node** cursor,Node** child){
             (*cursor)->keys[i] = x;
             (*cursor)->childPtr[i + 1] = *child;
 
-            cout << "Inserted Internal " << endl;
+           
 
-        }else{
+        }
+        
+         cout << "Inserted Internal " << endl;
+    }
+
+        else{
             //splitting
             cout << "OverFlow Splitting Happens " << endl;
 
@@ -273,12 +279,30 @@ void BPTree::insertInternal(int x,Node** cursor,Node** child){
             }else{
                 //recursion
                 //implementation pending
+                insertInternal(partitionKey, findParent(root,*cursor), &newInternalNode);
             }
 
         }
 
+}
 
+Node* parent = NULL;
+
+Node** BPTree::findParent(Node* cursor,Node* child){
+
+    if(cursor->isLeaf || cursor->childPtr[0]->isLeaf) return NULL;
+
+    for(int i = 0; i < cursor->childPtr.size(); i++){
+        if(cursor->childPtr[i] == child){
+            parent = cursor;
+        }else{
+            Node* tempCursor = cursor->childPtr[i];
+            findParent(tempCursor,child);
+        }
     }
+
+    return &parent;
+
 }
 
 
