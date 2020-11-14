@@ -1,0 +1,3 @@
+/home/kali/Documents/MiniDB/CMakeFiles/rebuild_cache.dir
+/home/kali/Documents/MiniDB/CMakeFiles/edit_cache.dir
+/home/kali/Documents/MiniDB/CMakeFiles/MiniDB.dir

@@ -4,6 +4,7 @@
 #include <fstream>
 #include <string>
 #include <queue>
+#include <cstring>
 
 using namespace std;
 
