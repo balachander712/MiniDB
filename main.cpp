@@ -12,8 +12,15 @@ void insertionMethod(BPTree** bpTree){
         cout << "Enter the roll no " << endl;
         cin >> rollNo;
 
-        cout << "Enter the name age and marks " << endl;
-        cin >> name >> age >> marks;
+
+        cout << "Enter the name of roll number " << rollNo << endl;
+        cin >> name;
+
+        cout << "Enter the age of roll number " << rollNo << endl;
+        cin >> age;
+
+        cout << "Enter the marks of roll number " << rollNo << endl;
+        cin >> marks;
 
         string fileName = "DBFiles/";
         fileName += to_string(rollNo) + ".txt";
